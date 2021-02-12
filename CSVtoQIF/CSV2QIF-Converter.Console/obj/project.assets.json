@@ -1,0 +1,97 @@
+{
+  "version": 3,
+  "targets": {
+    "net5.0": {
+      "CSV2QIF-Converter.Lib/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/CSV2QIF-Converter.Lib.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CSV2QIF-Converter.Lib.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "CSV2QIF-Converter.Lib/1.0.0": {
+      "type": "project",
+      "path": "../CSV2QIF-Converter.Lib/CSV2QIF-Converter.Lib.csproj",
+      "msbuildProject": "../CSV2QIF-Converter.Lib/CSV2QIF-Converter.Lib.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net5.0": [
+      "CSV2QIF-Converter.Lib >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\bcrom\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\GitRepos\\HomeAutomation\\CSVtoQIF\\CSV2QIF-Converter.Console\\CSV2QIF-Converter.Console.csproj",
+      "projectName": "CSV2QIF-Converter.Console",
+      "projectPath": "C:\\GitRepos\\HomeAutomation\\CSVtoQIF\\CSV2QIF-Converter.Console\\CSV2QIF-Converter.Console.csproj",
+      "packagesPath": "C:\\Users\\bcrom\\.nuget\\packages\\",
+      "outputPath": "C:\\GitRepos\\HomeAutomation\\CSVtoQIF\\CSV2QIF-Converter.Console\\obj\\",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Microsoft\\Xamarin\\NuGet\\",
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\bcrom\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net5.0"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "projectReferences": {
+            "C:\\GitRepos\\HomeAutomation\\CSVtoQIF\\CSV2QIF-Converter.Lib\\CSV2QIF-Converter.Lib.csproj": {
+              "projectPath": "C:\\GitRepos\\HomeAutomation\\CSVtoQIF\\CSV2QIF-Converter.Lib\\CSV2QIF-Converter.Lib.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net5.0": {
+        "targetAlias": "net5.0",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

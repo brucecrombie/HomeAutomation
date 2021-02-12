@@ -1,0 +1,12 @@
+C:\GitRepos\HomeAutomation\CSVtoQIF\CSV2QIF-Converter.Lib\bin\Debug\net5.0\CSV2QIF-Converter.Lib.deps.json
+C:\GitRepos\HomeAutomation\CSVtoQIF\CSV2QIF-Converter.Lib\bin\Debug\net5.0\CSV2QIF-Converter.Lib.dll
+C:\GitRepos\HomeAutomation\CSVtoQIF\CSV2QIF-Converter.Lib\bin\Debug\net5.0\ref\CSV2QIF-Converter.Lib.dll
+C:\GitRepos\HomeAutomation\CSVtoQIF\CSV2QIF-Converter.Lib\bin\Debug\net5.0\CSV2QIF-Converter.Lib.pdb
+C:\GitRepos\HomeAutomation\CSVtoQIF\CSV2QIF-Converter.Lib\obj\Debug\net5.0\CSV2QIF-Converter.Lib.csprojAssemblyReference.cache
+C:\GitRepos\HomeAutomation\CSVtoQIF\CSV2QIF-Converter.Lib\obj\Debug\net5.0\CSV2QIF-Converter.Lib.GeneratedMSBuildEditorConfig.editorconfig
+C:\GitRepos\HomeAutomation\CSVtoQIF\CSV2QIF-Converter.Lib\obj\Debug\net5.0\CSV2QIF-Converter.Lib.AssemblyInfoInputs.cache
+C:\GitRepos\HomeAutomation\CSVtoQIF\CSV2QIF-Converter.Lib\obj\Debug\net5.0\CSV2QIF-Converter.Lib.AssemblyInfo.cs
+C:\GitRepos\HomeAutomation\CSVtoQIF\CSV2QIF-Converter.Lib\obj\Debug\net5.0\CSV2QIF-Converter.Lib.csproj.CoreCompileInputs.cache
+C:\GitRepos\HomeAutomation\CSVtoQIF\CSV2QIF-Converter.Lib\obj\Debug\net5.0\CSV2QIF-Converter.Lib.dll
+C:\GitRepos\HomeAutomation\CSVtoQIF\CSV2QIF-Converter.Lib\obj\Debug\net5.0\ref\CSV2QIF-Converter.Lib.dll
+C:\GitRepos\HomeAutomation\CSVtoQIF\CSV2QIF-Converter.Lib\obj\Debug\net5.0\CSV2QIF-Converter.Lib.pdb

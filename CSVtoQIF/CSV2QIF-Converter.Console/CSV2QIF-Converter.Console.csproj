@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <LangVersion>9.0</LangVersion>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>CSV2QIF_Converter.Console</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CSV2QIF-Converter.Lib\CSV2QIF-Converter.Lib.csproj" />
+  </ItemGroup>
+
+</Project>

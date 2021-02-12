@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "CSV2QIF-Converter.Lib/1.0.0": {
+        "runtime": {
+          "CSV2QIF-Converter.Lib.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "CSV2QIF-Converter.Lib/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
