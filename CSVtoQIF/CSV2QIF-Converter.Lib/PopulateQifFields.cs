@@ -93,7 +93,7 @@ namespace Csv2QifConverter.Lib
                 tran.QIFCleared = "C";
                 try
                 {
-                    decimal amount = decimal.Parse(tran.Description.Substring(tran.Description.IndexOf('$')),
+                    decimal amount = decimal.Parse(tran.Description[tran.Description.IndexOf('$')..],
                         System.Globalization.NumberStyles.AllowCurrencySymbol | System.Globalization.NumberStyles.AllowThousands | System.Globalization.NumberStyles.AllowDecimalPoint);
                     tran.QIFPrice = $"I{amount / tran.Quantity:0.######}";
                     tran.QIFQuantity = $"Q{tran.Quantity:0.######}";

@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 
 namespace Csv2QifConverter.Lib
@@ -20,22 +17,24 @@ namespace Csv2QifConverter.Lib
             string EJNickName,
             decimal QuantityLimit,
             decimal PriceLimit,
-            decimal TransactionLimit
+            decimal TransactionLimit,
+            DateTime startDate
+
             )
         {
             bool debug = true;
 
             if (debug)
             {
-                System.Console.WriteLine($"csvFile: {csvFile}");
-                System.Console.WriteLine($"qifFile: {qifFile}");
-                System.Console.WriteLine($"rejectedTransFile: {rejectedTransFile}");
-                System.Console.WriteLine($"Ej2QickenSecurites: {Ej2QickenSecurites}");
-                System.Console.WriteLine($"EJAccount: {EJAccount}");
-                System.Console.WriteLine($"EJNickName: {Ej2QickenSecurites}");
-                System.Console.WriteLine($"QuantityLimit: {EJNickName}");
-                System.Console.WriteLine($"PriceLimit: {PriceLimit}");
-                System.Console.WriteLine($"TransactionLimit: {TransactionLimit}");
+                Console.WriteLine($"csvFile:\t\t{csvFile}");
+                Console.WriteLine($"qifFile:\t\t{qifFile}");
+                Console.WriteLine($"rejectedTransFile:\t{rejectedTransFile}");
+                Console.WriteLine($"Ej2QickenSecurites:\t{Ej2QickenSecurites}");
+                Console.WriteLine($"EJAccount:\t\t{EJAccount}");
+                Console.WriteLine($"EJNickName:\t\t{EJNickName}");
+                Console.WriteLine($"QuantityLimit:\t\t{QuantityLimit}");
+                Console.WriteLine($"PriceLimit:\t\t{PriceLimit}");
+                Console.WriteLine($"TransactionLimit:\t{TransactionLimit}");
             }
 
             // list of activities that Converter can process
@@ -66,16 +65,115 @@ namespace Csv2QifConverter.Lib
             if (debug)
             {
                 System.Console.WriteLine("Creation of a transaction list from the input csv file was sucessfull!");
-                OutputToConsole(trans);
+                OutputToConsole(trans, "Input");
             }
 
             // Validate the Transaction list and flag invalid records status field with a message
-            ValidateTransactions(trans, Activities, EJAccount, EJNickName, QuantityLimit, PriceLimit, TransactionLimit);
+            ValidateTransactions(trans, Activities, EJAccount, EJNickName, QuantityLimit, PriceLimit, TransactionLimit, startDate);
+            if (debug)
+            {
+                System.Console.WriteLine("Validation of the csv file was sucessfull!");
+                OutputToConsole(trans, "Validation");
+            }
 
             PopulateQIFFields(trans, SecuritiesMap);
+            if (debug)
+            {
+                System.Console.WriteLine("Population of QIF fields was sucessfull!");
+                OutputToConsole(trans, "QifFields");
+            }
 
+            // Output to files
+            using (TextWriter writer = new StreamWriter(qifFile.FullName))
+            {
+                writer.WriteLine("!Type:Invst");
+                foreach (var tran in trans)
+                {
+                    if (tran.Status == null)
+                    {
+                        writer.WriteLine(tran.QIFDate);
+                        writer.WriteLine(tran.QIFAction);
+                        switch (tran.QIFAction)
+                        {
+                            case "NDiv":
+                                writer.WriteLine(tran.QIFSecurity);
+                                writer.WriteLine(tran.QIFCleared);
+                                writer.WriteLine(tran.QIFUAmount);
+                                writer.WriteLine(tran.QIFTAmount);
+                                writer.WriteLine(tran.QIFDelimiter);
+                                break;
 
+                            case "NReinvDiv":
+                                writer.WriteLine(tran.QIFSecurity);
+                                writer.WriteLine(tran.QIFPrice);
+                                writer.WriteLine(tran.QIFQuantity);
+                                writer.WriteLine(tran.QIFCleared);
+                                writer.WriteLine(tran.QIFUAmount);
+                                writer.WriteLine(tran.QIFTAmount);
+                                writer.WriteLine(tran.QIFDelimiter);
+                                break;
 
+                            case "NBuy":
+                                writer.WriteLine(tran.QIFSecurity);
+                                writer.WriteLine(tran.QIFPrice);
+                                writer.WriteLine(tran.QIFQuantity);
+                                writer.WriteLine(tran.QIFCleared);
+                                writer.WriteLine(tran.QIFUAmount);
+                                writer.WriteLine(tran.QIFTAmount);
+                                writer.WriteLine(tran.QIFDelimiter);
+                                break;
+
+                            case "NSell":
+                                writer.WriteLine(tran.QIFSecurity);
+                                writer.WriteLine(tran.QIFPrice);
+                                writer.WriteLine(tran.QIFQuantity);
+                                writer.WriteLine(tran.QIFCleared);
+                                writer.WriteLine(tran.QIFUAmount);
+                                writer.WriteLine(tran.QIFTAmount);
+                                writer.WriteLine(tran.QIFDelimiter);
+                                break;
+
+                            case "NCash":
+                                writer.WriteLine(tran.QIFCleared);
+                                writer.WriteLine(tran.QIFUAmount);
+                                writer.WriteLine(tran.QIFTAmount);
+                                writer.WriteLine(tran.QIFCategory);
+                                writer.WriteLine(tran.QIFDelimiter);
+                                break;
+
+                            default:
+                                break;
+                        }
+                    }
+                }
+            }
+            if (debug)
+            {
+                System.Console.WriteLine("Writing to Qif File was sucessfull!");
+                OutputToConsole(trans, "QifWrite");
+            }
+
+            using (TextWriter writer = new StreamWriter(rejectedTransFile.FullName))
+            {
+                writer.WriteLine("DATE,ACCOUNT,ACTIVITY,DESCRIPTION,QUANTITY,CURRENCY,COMMISSION,PRICE,NET AMOUNT,ACCOUNT NICKNAME");
+                foreach (var tran in trans)
+                {
+                    if (tran.Status != null)
+                    {
+                        if (!tran.Status.Contains("[Duplicate]"))
+                        {
+                            writer.WriteLine(value: $"{tran.Date:d},{tran.Account},{tran.Activity}," +
+                                $"{tran.Description},{tran.Quantity},{tran.Currency:C},{tran.Commission:C}," +
+                                $"{tran.Price:C},{tran.NetAmount:$######0.00},{tran.AccountNickname},{tran.Status}");
+                        }
+                    }
+                }
+            }
+            if (debug)
+            {
+                System.Console.WriteLine("Writing to Excluded file was sucessfull!");
+                OutputToConsole(trans, "ExcludedWrite");
+            }
         }
 
         #region -------------------------------- Private Methods --------------------------------------
@@ -165,14 +263,15 @@ namespace Csv2QifConverter.Lib
                                                  string EJNickName,
                                                  decimal QuantityLimit,
                                                  decimal PriceLimit,
-                                                 decimal TansactionLimit
+                                                 decimal TansactionLimit,
+                                                 DateTime startDate
                                                  )
         {
             // Validate the transaction records and set unreadable transacitons status field with a message.
             foreach (var tran in trans)
             {
                 // date - should be no older that one year and can not be a future date
-                if (tran.Date < (DateTime.Now - new TimeSpan(365, 0, 0, 0)) || tran.Date > DateTime.Now)
+                if (tran.Date < startDate || tran.Date > DateTime.Now)
                 { tran.Status += "[Bad Date] "; }
 
                 // Account - not really used but it should match the input account name
@@ -193,7 +292,7 @@ namespace Csv2QifConverter.Lib
 
                 //  Commission - should always be zero
                 if (tran.Commission != 0)
-                { tran.Status += "[Incorrect commiSsion] "; }
+                { tran.Status += "[Incorrect commission] "; }
 
                 // Price - the price can not be negative or greater than the price limit
                 if (tran.Price < 0 || tran.Price > PriceLimit)
@@ -208,11 +307,6 @@ namespace Csv2QifConverter.Lib
                 { tran.Status += "[Bad Nickname] "; }
             }
         }
-
-
-
-
-
 
         #endregion ----------------------------- Private Methods --------------------------------------
     }

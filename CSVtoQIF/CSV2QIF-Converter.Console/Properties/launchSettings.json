@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "CSV2QIF-Converter.Console": {
+      "commandName": "Project",
+      "commandLineArgs": "\"D:\\EdwardJones CSV to qfx\\Activity_MSBC-01312020-02062021-B.csv\" MSBC"
+    }
+  }
+}
