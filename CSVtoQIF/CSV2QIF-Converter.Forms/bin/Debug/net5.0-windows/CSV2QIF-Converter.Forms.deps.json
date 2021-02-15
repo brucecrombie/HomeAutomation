@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "CSV2QIF-Converter.Forms/1.0.0": {
+        "dependencies": {
+          "CSV2QIF-Converter.Lib": "1.0.0"
+        },
+        "runtime": {
+          "CSV2QIF-Converter.Forms.dll": {}
+        }
+      },
+      "CSV2QIF-Converter.Lib/1.0.0": {
+        "runtime": {
+          "CSV2QIF-Converter.Lib.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "CSV2QIF-Converter.Forms/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CSV2QIF-Converter.Lib/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

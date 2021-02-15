@@ -22,7 +22,7 @@ namespace Csv2QifConverter.Lib
 
             )
         {
-            bool debug = true;
+            bool debug = false;
 
             if (debug)
             {
@@ -223,10 +223,10 @@ namespace Csv2QifConverter.Lib
                     Price = fields[7].Substring(0, 1) == "-" ?           // The price is converted to a signed decimal
                     -decimal.Parse(fields[7].TrimStart('-', '$')) :
                     decimal.Parse(fields[7].TrimStart('$')),
-                    NetAmount = fields[8].Substring(0, 1) == "-" ?       // Teh NetAmount is converted to a signed decimal
+                    NetAmount = fields[8].Substring(0, 1) == "-" ?       // The NetAmount is converted to a signed decimal
                     -decimal.Parse(fields[8].TrimStart('-', '$')) :
                     decimal.Parse(fields[8].TrimStart('$')),
-                    AccountNickname = fields[9]                         // The account nickname is not used
+                    AccountNickname = fields[9]                          // The account nickname is not used
                 };
 
                 trans.Add(tr);

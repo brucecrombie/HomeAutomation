@@ -116,7 +116,7 @@ namespace CSV2QIF_Converter.Console
                 return;
             }
 
-            // th check that days old has a meaningfull value - default to 365.
+            // 5th check that days old has a meaningfull value - default to 365.
             if (daysOld <= 0)
             {
                 System.Console.ForegroundColor = ConsoleColor.Red;

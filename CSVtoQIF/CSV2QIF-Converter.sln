@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSV2QIF-Converter.Lib", "CS
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSV2QIF-Converter.Console", "CSV2QIF-Converter.Console\CSV2QIF-Converter.Console.csproj", "{B913A35D-5711-44E3-A45D-3BD3D4BE8EA1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSV2QIF-Converter.Forms", "CSV2QIF-Converter.Forms\CSV2QIF-Converter.Forms.csproj", "{7BE758ED-E8D9-40F5-A44E-5EF50BE28BD1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{B913A35D-5711-44E3-A45D-3BD3D4BE8EA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B913A35D-5711-44E3-A45D-3BD3D4BE8EA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B913A35D-5711-44E3-A45D-3BD3D4BE8EA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BE758ED-E8D9-40F5-A44E-5EF50BE28BD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BE758ED-E8D9-40F5-A44E-5EF50BE28BD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BE758ED-E8D9-40F5-A44E-5EF50BE28BD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BE758ED-E8D9-40F5-A44E-5EF50BE28BD1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
